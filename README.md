@@ -56,29 +56,6 @@ To run the application, you have to:
 
 ------------
 
-## Installing the app.
-To extract and run the network in Code::Blocks <br/>
-$ mkdir *MyDir* <br/>
-$ cd *MyDir* <br/>
-$ wget https://github.com/Qengineering/YoloFastestV2-ncnn-Raspberry-Pi-4/archive/refs/heads/main.zip <br/>
-$ unzip -j master.zip <br/>
-Remove master.zip, LICENSE and README.md as they are no longer needed. <br/> 
-$ rm master.zip <br/>
-$ rm LICENSE <br/>
-$ rm README.md <br/> <br/>
-Your *MyDir* folder must now look like this: <br/> 
-James.mp4 <br/>
-parking.jpg <br/>
-parking_tiny.jpg <br/>
-YoloFastestV2.cpb <br/>
-mainFV2.cpp <br/>
-yolo-fastestv2.cpp <br/>
-yolo-fastestv2.h <br/>
-yolo-fastestv2-opt.bin <br/>
-yolo-fastestv2-opt.param <br/>
-
-------------
-
 ## Running the app.
 To run the application load the project file YoloFastestV2.cbp in Code::Blocks. More info or<br/> 
 if you want to connect a camera to the app, follow the instructions at [Hands-On](https://qengineering.eu/deep-learning-examples-on-raspberry-32-64-os.html#HandsOn).<br/><br/>
@@ -88,9 +65,12 @@ Many thanks to [dog-qiuqiu](https://github.com/dog-qiuqiu/Yolo-FastestV2) and [Q
 
 ## Considerations.
 I have provided seperate code for each feature. To make use of those features, copy the code for that .txt into mainFV2.cpp. Here are the details:
-  - For basic detections use orginialmain.txt <br/>
-  - For socketing, usinf mainsocketing.txt and also run pyhtonFV2.py <br/>
-  - For Event based recording, use <br/>
+  - For basic detections go to 'codes > orginialmain.txt' and copy/paste the text in mainFV2.cpp file. <br/>
+  - For socketing, go to 'sockets > socketingcpp.txt' and copy paste the code in mainFV2.cpp file. To communicate with python, run 'pythonfinal.py' in parallel. <br/>
+  - For Event based recording, go to 'codes > captureFrameFinal.txt' and copy paste the code in mainFV2.cpp file.<br/>
+  - For Multi-camera streaming and detections, go to 'codes > multi_streaming.txt' and copy paste the code in mainFV2.cpp file.<br/>
+
+By default mainFV2.cpp contains multi_streaming code.
 
 ## Contact
 
