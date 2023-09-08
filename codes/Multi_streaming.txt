@@ -1,0 +1,49 @@
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+#include <chrono>
+#include <thread>
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include "yolo-fastestv2.h"
+#include "FrameBuffer.hpp" // Include the header for FrameBuffer class
+#include "AnnotateObjects.hpp"  // Include the header for AnnotateObjects class
+#include "cameraProcessing.hpp"
+
+
+
+int main(int argc, char** argv) {
+
+    // Initialize YOLOFastestV2 and other initialization ...
+    yoloF2.init(true); //we have a GPU
+    yoloF2.loadModel("yolo-fastestv2-opt.param","yolo-fastestv2-opt.bin");
+
+    // Create a frame buffer for the cameras
+
+
+
+    // Start a thread for the main camera
+
+    std::string CameraUrl_1 = "samples/James.mp4";  // you may set url as "rstp://..."
+
+    std::thread CameraThread_1(cameraProcessing, CameraUrl_1, "Camera-1", std::ref(yoloF2));
+
+    //Second camera setup
+    std::string CameraUrl_2 = "samples/James_2.mp4";
+    std::thread CameraThread_2(cameraProcessing, CameraUrl_2, "Camera-2", std::ref(yoloF2));
+
+
+    //Add further cameras if needed...
+
+    // Wait for the main camera thread to finish
+    CameraThread_1.join();
+    CameraThread_2.join();
+
+    return 0;
+}
+
+
+
+
