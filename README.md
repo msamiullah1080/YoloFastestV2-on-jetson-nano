@@ -63,14 +63,23 @@ Many thanks to [dog-qiuqiu](https://github.com/dog-qiuqiu/Yolo-FastestV2) and [Q
 ![output image]( https://qengineering.eu/images/Test_YoloF.jpg )<br/>
 
 
-## Considerations.
-I have provided seperate code for each feature. To make use of those features, copy the code for that .txt into mainFV2.cpp. Here are the details:
+## Using Features.
+I have provided seperate code for each feature. To make use of those features, follow the steps below:
   - For basic detections go to 'codes > orginialmain.txt' and copy/paste the text in mainFV2.cpp file. <br/>
   - For socketing, go to 'sockets > socketingcpp.txt' and copy paste the code in mainFV2.cpp file. To communicate with python, run 'pythonfinal.py' in parallel. <br/>
   - For Event based recording, go to 'codes > captureFrameFinal.txt' and copy paste the code in mainFV2.cpp file.<br/>
   - For Multi-camera streaming and detections, go to 'codes > multi_streaming.txt' and copy paste the code in mainFV2.cpp file.<br/>
 
 By default mainFV2.cpp contains multi_streaming code.
+
+## Understanding Files
+There are different source and headers in this repository, let's understand function of these:
+  - 'mainFV2.cpp' is the main source file that is executed.
+  - 'yolo-fastestv2.h' and 'yolo-fastestv2.cpp' are the algorithms for detection.
+  - 'FrameBuffer.hpp' is header for storing frames of 20s before and 20s after the event occurs which are used to generate video.
+  - 'AnnotateObjects.hpp' is header for labeling the boxes and objects detected in the stream.
+  - 'cameraProcessing.hpp' carried out all the processing including event detection, object detection and video generation.
+
 
 ## Contact
 
